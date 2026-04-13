@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-mvc-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-mvc
+  template:
+    metadata:
+      labels:
+        app: spring-mvc
+    spec:
+      containers:
+        - name: spring-mvc-container
+          image: <your-docker-id>/spring-mvc-app
+          ports:
+            - containerPort: 8080

@@ -1,0 +1,17 @@
+general:
+  buildTool: maven
+
+stages:
+  Build:
+    mavenExecuteStaticCodeChecks: false
+
+  Acceptance:
+    cloudFoundryDeploy: true
+
+steps:
+  cloudFoundryDeploy:
+    cfApiEndpoint: "https://api.cf.ap21.hana.ondemand.com"
+    cfOrg: "d38f4a1dtrial"
+    cfSpace: "dev"
+    cfAppName: "spring-mvc-app"
+    deployType: "standard"
