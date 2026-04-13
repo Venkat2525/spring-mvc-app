@@ -14,7 +14,4 @@ steps:
     cfOrg: "d38f4a1dtrial"
     cfSpace: "dev"
     cfAppName: "spring-mvc-app"
-    deployType: "standard"
-	
-	
-	
+    deployType: "standard"	
