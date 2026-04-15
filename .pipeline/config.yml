@@ -2,16 +2,33 @@ general:
   buildTool: maven
 
 stages:
+
   Build:
     mavenExecuteStaticCodeChecks: false
 
+  AdditionalUnitTests:
+    run: true
+
+  MalwareScan:
+    run: true
+
   Acceptance:
-    cloudFoundryDeploy: true
+    run: true
+
+  Compliance:
+    run: true
+
+  Release:
+    run: true
 
 steps:
+
+  mavenExecute:
+    goals: "clean verify"
+
   cloudFoundryDeploy:
     cfApiEndpoint: "https://api.cf.ap21.hana.ondemand.com"
     cfOrg: "d38f4a1dtrial"
     cfSpace: "dev"
     cfAppName: "spring-mvc-app"
-    deployType: "standard"	
+    deployType: "standard"
