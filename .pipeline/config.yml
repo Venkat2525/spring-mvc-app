@@ -6,15 +6,18 @@ stages:
     mavenExecuteStaticCodeChecks: false
 
   Additional Unit Tests:
-    run: true
+    run: true   # ✅ Enables this stage
 
 steps:
+  # 🔹 Build Stage → Runs only normal unit tests
   mavenExecute:
-    goals: "clean verify -Dtest=!AdditionalTest"
+    goals: "clean verify -Dtest=!*IT"
 
+  # 🔹 Additional Unit Tests Stage → Runs IT tests
   additionalUnitTests:
-    command: "mvn test -Dtest=AdditionalTest"
+    command: "mvn test -Dtest=*IT"
 
+  # 🔹 Deployment
   cloudFoundryDeploy:
     cfApiEndpoint: "https://api.cf.ap21.hana.ondemand.com"
     cfOrg: "d38f4a1dtrial"
