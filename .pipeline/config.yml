@@ -5,16 +5,9 @@ stages:
   Build:
     mavenExecuteStaticCodeChecks: false
 
-  AdditionalUnitTests:
-    run: true
-
 steps:
-
   mavenExecute:
-    goals: "clean install -DskipTests=true"   # skip tests in build
-
-  mavenExecuteAdditionalUnitTests:
-    goals: "test"   # run tests here
+    goals: "clean verify"
 
   cloudFoundryDeploy:
     cfApiEndpoint: "https://api.cf.ap21.hana.ondemand.com"
