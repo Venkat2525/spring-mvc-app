@@ -17,5 +17,6 @@ class FirstApplicationTest {
         String result = controller.getHomeData();
 
         assertEquals("welcome", result);
+        
     }
 }
