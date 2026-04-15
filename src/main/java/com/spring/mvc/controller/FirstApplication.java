@@ -20,12 +20,12 @@ public class FirstApplication {
   @GetMapping("/home")
   @ResponseBody
   public String getHomeData() {
-    System.out.print("Hello");
-    
-    
-    List<Employee> employee=   employeeDetails.getEmployeeDetails();
-    
-    employee.stream().forEach(System.out::println);
+//    System.out.print("Hello");
+//    
+//    
+//    List<Employee> employee=   employeeDetails.getEmployeeDetails();
+//    
+//    employee.stream().forEach(System.out::println);
     
     
     return "welcome";  
