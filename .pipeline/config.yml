@@ -6,18 +6,39 @@ stages:
     mavenExecuteStaticCodeChecks: false
 
   Additional Unit Tests:
-    run: true   # ✅ Enables this stage
+    run: true
+
+  Malware Scan:
+    run: true
+
+  Acceptance:
+    run: true
+
+  Compliance:
+    run: true
+
+  Release:
+    run: true
 
 steps:
-  # 🔹 Build Stage → Runs only normal unit tests
+
+  # 🔹 Build → Unit Tests
   mavenExecute:
     goals: "clean verify -Dtest=!*IT"
 
-  # 🔹 Additional Unit Tests Stage → Runs IT tests
+  # 🔹 Additional → Integration Tests
   additionalUnitTests:
-    command: "mvn test -Dtest=*IT"
+    command: "mvn verify -Dit.test=*IT"
 
-  # 🔹 Deployment
+  # 🔹 Acceptance → simple test example
+  acceptance:
+    command: "echo Running acceptance tests"
+
+  # 🔹 Release → dummy example
+  release:
+    command: "echo Releasing build"
+
+  # 🔹 Deploy
   cloudFoundryDeploy:
     cfApiEndpoint: "https://api.cf.ap21.hana.ondemand.com"
     cfOrg: "d38f4a1dtrial"

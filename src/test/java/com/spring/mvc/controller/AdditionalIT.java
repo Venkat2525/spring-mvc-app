@@ -1,9 +1,7 @@
 package com.spring.mvc.controller;
 
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-@Tag("additional")
 public class AdditionalIT {
 	
 	 @Test
