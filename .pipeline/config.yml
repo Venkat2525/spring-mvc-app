@@ -6,8 +6,7 @@ stages:
     mavenExecuteStaticCodeChecks: false
 
   Compliance:
-    runFirst:
-      - mavenExecute   # ✅ FIXED
+    runFirst: mavenExecute   # 👈 VERY IMPORTANT
 
 steps:
   mavenExecute:
