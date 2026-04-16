@@ -5,18 +5,13 @@ stages:
   Build:
     mavenExecuteStaticCodeChecks: false
 
-  Compliance:
-    runFirst: mavenExecute   # 👈 VERY IMPORTANT
-
 steps:
   mavenExecute:
-    goals: "clean install"
-
-  sonarExecuteScan:
-    serverUrl: "https://sonarcloud.io"
-    organization: "venkat2525"
-    projectKey: "Venkat2525_spring-mvc-app"
+    goals: "clean verify sonar:sonar"
     additionalProperties:
+      sonar.host.url: "https://sonarcloud.io"
+      sonar.organization: "venkat2525"
+      sonar.projectKey: "Venkat2525_spring-mvc-app"
       sonar.sources: "src/main/java"
       sonar.exclusions: "**/*.sh,**/*.yaml,**/*.yml,**/piper/**"
       sonar.java.binaries: "target/classes"
