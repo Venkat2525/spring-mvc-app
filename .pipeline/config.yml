@@ -3,7 +3,7 @@ general:
 
 stages:
   Build:
-    mavenExecuteStaticCodeChecks: false
+    mavenExecuteStaticCodeChecks: true
 
 steps:
   mavenExecute:
