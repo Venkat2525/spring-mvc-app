@@ -12,6 +12,7 @@ steps:
     additionalProperties:
       sonar.host.url: "https://sonarcloud.io"
       sonar.organization: "venkat2525"
+	  sonar.login: "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"
       sonar.projectKey: "Venkat2525_spring-mvc-app"
       sonar.sources: "src/main/java"
       sonar.exclusions: "**/*.sh,**/*.yaml,**/*.yml,**/piper/**"
