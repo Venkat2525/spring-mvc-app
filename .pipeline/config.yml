@@ -5,40 +5,16 @@ stages:
   Build:
     mavenExecuteStaticCodeChecks: false
 
-  Additional Unit Tests:
-    run: true
-
-  Malware Scan:
-    run: true
-
-  Acceptance:
-    run: true
-
-  Compliance:
-    run: true
-
-  Release:
-    run: true
-
 steps:
+  sonarExecuteScan:
+    serverUrl: "https://sonarcloud.io"
+    organization: "venkat2525"
+    projectKey: "Venkat2525_spring-mvc-app"
+    additionalProperties:
+      sonar.sources: "src/main/java"
+      sonar.exclusions: "**/*.sh,**/*.yaml,**/*.yml,**/piper/**"
+      sonar.java.binaries: "target/classes"
 
-  # 🔹 Build → Unit Tests
-  mavenExecute:
-    goals: "clean verify -Dtest=!*IT"
-
-  # 🔹 Additional → Integration Tests
-  additionalUnitTests:
-    command: "mvn verify -Dit.test=*IT"
-
-  # 🔹 Acceptance → simple test example
-  acceptance:
-    command: "echo Running acceptance tests"
-
-  # 🔹 Release → dummy example
-  release:
-    command: "echo Releasing build"
-
-  # 🔹 Deploy
   cloudFoundryDeploy:
     cfApiEndpoint: "https://api.cf.ap21.hana.ondemand.com"
     cfOrg: "d38f4a1dtrial"
