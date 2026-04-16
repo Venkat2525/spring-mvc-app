@@ -6,25 +6,12 @@ stages:
     mavenExecuteStaticCodeChecks: false
 
 steps:
-  # ✅ Build + Sonar
   mavenExecute:
     goals: "clean verify sonar:sonar"
     additionalProperties:
       sonar.host.url: "https://sonarcloud.io"
       sonar.organization: "venkat2525"
-	  sonar.login: "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"
       sonar.projectKey: "Venkat2525_spring-mvc-app"
+      sonar.login: "${SONAR_TOKEN}"
       sonar.sources: "src/main/java"
-      sonar.exclusions: "**/*.sh,**/*.yaml,**/*.yml,**/piper/**"
       sonar.java.binaries: "target/classes"
-
-  # ✅ Teams Notification (ALWAYS runs)
-  script:
-    - |
-      echo "Sending Teams notification..."
-
-      curl -X POST "https://defaultf66b6bd3ebc24f548769d22858de97.c5.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/1c40ee05bc214c1f9f6a88f16d6bb1a1/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=dGyQUhu3KifW6BkFeyqCLUni4dDYGiGefkn3SrJfAPY" \
-      -H "Content-Type: application/json" \
-      -d "{
-        \"text\": \"🚀 CI/CD Pipeline Completed\nProject: spring-mvc-app\nStatus: $PIPER_buildStatus\"
-      }"
