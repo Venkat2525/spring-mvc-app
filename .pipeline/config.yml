@@ -5,6 +5,9 @@ stages:
   Build:
     mavenExecuteStaticCodeChecks: false
 
+  Compliance:
+    runFirst: mavenExecute
+
 steps:
   mavenExecute:
     goals: "clean install"
@@ -17,10 +20,3 @@ steps:
       sonar.sources: "src/main/java"
       sonar.exclusions: "**/*.sh,**/*.yaml,**/*.yml,**/piper/**"
       sonar.java.binaries: "target/classes"
-
-  cloudFoundryDeploy:
-    cfApiEndpoint: "https://api.cf.ap21.hana.ondemand.com"
-    cfOrg: "d38f4a1dtrial"
-    cfSpace: "dev"
-    cfAppName: "spring-mvc-app"
-    deployType: "standard"
