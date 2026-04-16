@@ -6,6 +6,9 @@ stages:
     mavenExecuteStaticCodeChecks: false
 
 steps:
+  mavenExecute:
+    goals: "clean install"
+
   sonarExecuteScan:
     serverUrl: "https://sonarcloud.io"
     organization: "venkat2525"
