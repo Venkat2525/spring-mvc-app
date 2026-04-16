@@ -9,6 +9,3 @@ steps:
   mavenExecute:
     goals: "clean install"
     buildTarget: "target"
-
-  sonarExecuteScan:
-    additionalParameters: "-Dsonar.java.binaries=target/classes"
