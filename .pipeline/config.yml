@@ -7,6 +7,8 @@ stages:
 
   Compliance:
     sonarExecuteScan: true
+    sonarProperties:
+      sonar.java.binaries: "**/target/classes"
 
 steps:
   mavenExecute:
