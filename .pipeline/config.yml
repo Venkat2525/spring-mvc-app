@@ -8,3 +8,4 @@ stages:
 steps:
   mavenExecute:
     goals: "clean install"
+    stashIncludes: "target/**"
