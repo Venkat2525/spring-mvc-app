@@ -8,3 +8,7 @@ stages:
 steps:
   mavenExecute:
     goals: "clean install"
+
+  sonarExecuteScan:
+    dockerOptions: "-u 0"
+    additionalParameters: "-Dsonar.java.binaries=target/classes"
