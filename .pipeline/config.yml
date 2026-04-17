@@ -1,8 +1,5 @@
 general:
   buildTool: maven
-  containerOptions:
-    sonar:
-      dockerOptions: "-u root"
 
 stages:
   Build:
@@ -10,10 +7,13 @@ stages:
 
   Compliance:
     sonarExecuteScan: true
+    containerOptions:
+      dockerOptions: "-u root"
     sonarProperties:
       sonar.java.binaries: "target/classes"
 
 steps:
   mavenExecute:
     goals: "clean install"
-    stashIncludes: "target/classes/**/*.class"
+    stashIncludes: "target/**"
+    stashExcludes: ""
