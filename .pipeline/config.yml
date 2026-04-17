@@ -5,7 +5,9 @@ stages:
   Build:
     mavenExecuteStaticCodeChecks: true
 
+  Compliance:
+    sonarExecuteScan: true
+
 steps:
   mavenExecute:
     goals: "clean install"
-    stashIncludes: "target/**"
