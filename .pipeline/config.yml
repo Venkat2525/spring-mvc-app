@@ -1,7 +1,5 @@
 general:
   buildTool: maven
-  containerOptions:
-    dockerOptions: "-u 0"   # ✅ MUST be here (GLOBAL)
 
 stages:
   Build:
@@ -9,9 +7,12 @@ stages:
 
   Compliance:
     sonarExecuteScan: true
-    sonarProperties:
-      sonar.java.binaries: "target/classes"
 
 steps:
   mavenExecute:
     goals: "clean install"
+
+  sonarExecuteScan:
+    dockerOptions: "-u 0"
+    sonarProperties:
+      sonar.java.binaries: "target/classes"
