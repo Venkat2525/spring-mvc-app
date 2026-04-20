@@ -10,7 +10,8 @@ stages:
 
 steps:
   sonarExecuteScan:
-    waitForQualityGate: true
+    parameters:
+      waitForQualityGate: true   # ✅ THIS IS THE REAL FIX
 
   mavenExecute:
     goals: "clean install"
