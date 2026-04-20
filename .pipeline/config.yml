@@ -7,13 +7,16 @@ stages:
 
   Compliance:
     sonarExecuteScan: true
-    sonarExecuteQualityGate:
-      failOnQualityGateFailure: true
-
+    sonarExecuteQualityGate: true
+  
 steps:
   sonarExecuteScan:
     parameters:
       waitForQualityGate: true
+
+  sonarExecuteQualityGate:
+    failOnQualityGateFailure: true   # 👈 THIS FAILS THE BUILD
+    pollingTimeoutSeconds: 300       # wait up to 5 mins
 
   mavenExecute:
     goals: "clean install"
