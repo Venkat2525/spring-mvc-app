@@ -7,9 +7,10 @@ stages:
 
   Compliance:
     sonarExecuteScan: true
-    sonarQualityGate:
-      waitForQualityGate: true
 
 steps:
+  sonarExecuteScan:
+    waitForQualityGate: true
+
   mavenExecute:
     goals: "clean install"
