@@ -1,5 +1,5 @@
 applications:
-  - name: spring-mvc-app
+  - name: springmvcapp
     memory: 1G
     instances: 1
     path: target/SpringMVC-0.0.1-SNAPSHOT.jar
