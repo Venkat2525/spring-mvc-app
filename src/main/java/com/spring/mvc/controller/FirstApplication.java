@@ -1,5 +1,6 @@
 package com.spring.mvc.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,11 @@ public class FirstApplication {
     
    List<Employee> employee=   employeeDetails.getEmployeeDetails();
    
-    employee.stream().forEach(System.out::println);
+   employee = Collections.EMPTY_LIST;
+   
+   employee.get(0).getName();
+   
+//    employee.stream().forEach(System.out::println);
     
     
     return "welcome";  
