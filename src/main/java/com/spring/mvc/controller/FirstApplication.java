@@ -21,16 +21,21 @@ public class FirstApplication {
   @GetMapping("/home")
   @ResponseBody
   public String getHomeData() {
-    System.out.print("Hello");
-    
+	  
+    System.out.println("Hello");
     
    List<Employee> employee=   employeeDetails.getEmployeeDetails();
    
    employee.stream().forEach(System.out::println);
    
+   System.out.println("********************************************");
+   
    employee = Collections.EMPTY_LIST;
    
    employee.get(0).getName();
+   
+   
+   System.out.println("welcome");
    
    
     return "welcome";  
