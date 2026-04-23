@@ -29,11 +29,7 @@ public class FirstApplication {
    employee.stream().forEach(System.out::println);
    
    System.out.println("********************************************");
-   
-   employee = Collections.EMPTY_LIST;
-   
-   employee.get(0).getName();
-   
+      
    
    System.out.println("welcome");
    
